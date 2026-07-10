@@ -18,7 +18,9 @@
                             </c:if>
                             <div class="msg-text">${fn:escapeXml(msg.content)}</div>
                         </div>
-                        <div class="chat-msg-sent_at">${msg.sent_at}</div>
+                        <div class="chat-msg-sent_at">
+                            ${msg.sent_time}
+                        </div>
                     </div>
                 </c:otherwise>
             </c:choose>

@@ -1,6 +1,7 @@
 package com.kh.project.common;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -79,7 +80,7 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
             chatService.saveMessage(roomId, senderSabun, senderName, content);
 
             // 응답 JSON 생성
-            String sentTime = LocalDate.now().toString();
+            String sentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm"));
 
             Map<String, Object> outgoing = new HashMap<>();
             outgoing.put("type", "chat");

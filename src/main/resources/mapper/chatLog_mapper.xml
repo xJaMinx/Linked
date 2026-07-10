@@ -63,7 +63,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <!--채팅방 최근 메시지 100건 조회-->
     <select id="selectRecentLogs" resultType="chatMsg">
-        select * from chat_message
+        select message_id, room_id, sender_sabun, content, saname, sent_at,
+            CASE
+                WHEN DATE(sent_at) = CURDATE()
+                    THEN DATE_FORMAT(sent_at, '%H:%i')
+                ELSE
+                    DATE_FORMAT(sent_at, '%Y-%m-%d')
+            END AS sent_time
+        from chat_message
             where room_id = #{room_id}
             order by sent_at desc
             limit #{limit}
@@ -71,7 +78,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <!--특정 시각 이후 메시지-->
     <select id="selectLogsBefore" resultType="chatMsg">
-        select * from chat_message
+        select message_id, room_id, sender_sabun, content, saname, sent_at,
+            CASE
+                WHEN DATE(sent_at) = CURDATE()
+                    THEN DATE_FORMAT(sent_at, '%H:%i')
+                ELSE
+                    DATE_FORMAT(sent_at, '%Y-%m-%d')
+            END AS sent_time
+        from chat_message
             where room_id = #{room_id}
                 and message_id &lt; #{lastLogId}
             order by sent_at desc

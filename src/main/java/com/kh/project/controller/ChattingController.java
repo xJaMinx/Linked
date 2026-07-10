@@ -1,5 +1,7 @@
 package com.kh.project.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.project.dao.ChatDAO;
-import com.kh.project.dao.SawonDAO;
 import com.kh.project.service.ChatService;
 import com.kh.project.vo.ChatMessageVO;
 import com.kh.project.vo.SawonVO;
@@ -29,7 +30,7 @@ public class ChattingController {
     public String chatRoom(Model model, String room_type, @PathVariable int roomId){
 
         List<ChatMessageVO> logs = chatService.getRecentLogs(roomId);
-
+        
         model.addAttribute("room_type", room_type);
         model.addAttribute("roomId", roomId);
         model.addAttribute("logs", logs);

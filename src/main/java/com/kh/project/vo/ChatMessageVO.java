@@ -1,6 +1,7 @@
 package com.kh.project.vo;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import org.apache.ibatis.type.Alias;
 
@@ -16,5 +17,6 @@ public class ChatMessageVO {
     private int message_id, room_id;
     private Integer sender_sabun;
     private String content, saname;
-    private LocalDate sent_at;
+    private LocalDateTime sent_at;
+    private String sent_time;
 }

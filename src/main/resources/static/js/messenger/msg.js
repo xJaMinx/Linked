@@ -80,7 +80,7 @@ function loadChatRoomList() {
                                     html += '<div class="msg-sender">' + escapeHtml(msg.saname) + '</div>';
                                 }
                                 html += '<div class="msg-text">' + escapeHtml(msg.content) + '</div></div>';
-                                html += '<div class="chat-msg-sent_at">' + (msg.sent_at || '') + '</div>';
+                                html += '<div class="chat-msg-sent_at">' + (msg.sent_time || '') + '</div>';
                                 el.innerHTML = html;
                             }
                             fragment.appendChild(el);

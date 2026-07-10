@@ -271,11 +271,18 @@ public class UserController {
 
         //사번이 제대로 넘어 왔다면
         if( sabun != null || !sabun.trim().equals("") ){
-            
             int realSabun = Integer.parseInt(sabun);
-            SalaryContractVO contract = salaryDao.getContractBySabun(realSabun); 
 
-            model.addAttribute("contract", contract);
+            SalaryContractVO pendingContract = salaryDao.getPendingContract(realSabun); // 서명 대기중인 근로계약서 조회
+
+            if(pendingContract == null){
+                SalaryContractVO contract = salaryDao.getContractBySabun(realSabun); 
+                model.addAttribute("contract", contract);
+            }else{
+                model.addAttribute("contract", pendingContract);
+                
+            }
+            
         }else{ //사번이 제대로 넘어오지 않았다면
         System.out.println("해당 사원의 사번 정보가 없습니다");
         }
