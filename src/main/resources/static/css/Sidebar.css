@@ -36,7 +36,8 @@ body {
     color: #ffffff;
     margin-bottom: 40px;
 }
-.logo:hover{
+
+.logo:hover {
     cursor: pointer;
 }
 
@@ -44,36 +45,47 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    list-style: none; /* 혹시 모를 리스트 점 제거 */
+    list-style: none;
+    /* 혹시 모를 리스트 점 제거 */
 }
 
 /* ⭐ 핵심 수정: .sidebar-item 자체이거나 그 내부의 <a> 태그까지 스타일 강제 적용 */
-.sidebar-item, .sidebar-item a {
-    text-decoration: none !important; /* 밑줄 절대 금지 */
-    color: #ffffff;               
+.sidebar-item,
+.sidebar-item a {
+    text-decoration: none !important;
+    /* 밑줄 절대 금지 */
+    color: #ffffff;
     font-size: 15px;
     font-weight: 500;
-    
+
     display: flex;
     align-items: center;
-    gap: 12px;                       /* 아이콘과 글자 사이 간격 */
-    
+    gap: 12px;
+    /* 아이콘과 글자 사이 간격 */
+
     padding: 14px 18px;
-    border-radius: 16px;             /* 예시 이미지처럼 부드러운 라운딩 */
+    border-radius: 16px;
+    /* 예시 이미지처럼 부드러운 라운딩 */
     transition: 0.2s;
     cursor: pointer;
 }
 
 /* 마우스 올렸을 때 효과 */
-.sidebar-item:hover, .sidebar-item a:hover {
-    background: #EFF6FF;             /* 연한 하늘색 배경 */
-    color: #2563EB;                  /* 파란색 글씨 */
+.sidebar-item:hover,
+.sidebar-item a:hover {
+    background: #EFF6FF;
+    /* 연한 하늘색 배경 */
+    color: #2563EB;
+    /* 파란색 글씨 */
 }
 
 /* ⭐ 활성화된 메뉴 스타일 */
-.sidebar-item.active, .sidebar-item.active a {
-    background: #DBEAFE;             /* 조금 더 진한 하늘색 배경 */
-    color: #1D4ED8;                  /* 선명한 블루 글씨 */
+.sidebar-item.active,
+.sidebar-item.active a {
+    background: #DBEAFE;
+    /* 조금 더 진한 하늘색 배경 */
+    color: #1D4ED8;
+    /* 선명한 블루 글씨 */
     font-weight: 600;
 }
 

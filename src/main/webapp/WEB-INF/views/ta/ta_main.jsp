@@ -55,7 +55,7 @@
                         alert("이미 퇴근 처리되었습니다.");
                         
                     } else if (data.result === "login") {
-                        alert("로그인이 필요합니다.");
+                        alert("로그인이 필요합니다.");  
                         location.href = "login";
                         
                     } else {
